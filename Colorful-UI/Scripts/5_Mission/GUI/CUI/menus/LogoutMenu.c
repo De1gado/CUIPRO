@@ -43,8 +43,8 @@ modded class LogoutMenu extends UIScriptedMenu
 		// You can even be specific and set the color directly. ie. argb(255, 255, 255, 255);
 		
 		// Example of a button with a callback
-        cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_LogoutNow),"#main_menu_exit",colorScheme.PrimaryText(),colorScheme.ButtonHover(),this,"abortMission");
-		cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_Cancel),"Cancel",colorScheme.PrimaryText(),colorScheme.ButtonHover(),this,"canelExit");
+        cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_LogoutNow),"#main_menu_exit",colorScheme.SecondaryText(),colorScheme.ButtonHover(),this,"abortMission");
+		cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_Cancel),"#menu_cancel",colorScheme.SecondaryText(),colorScheme.ButtonHover(),this,"canelExit");
 
 		// Custom Links
         cuiElmnt.proBtnURL(this, ButtonWidget.Cast(m_PrioQ),"Priority Queue",colorScheme.PrimaryText(),colorScheme.ButtonHover(),CustomURL.PriorityQ);           

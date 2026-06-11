@@ -81,13 +81,13 @@ class CUIButtonHandler : ScriptedWidgetEventHandler
 
         if (m_SolidBg)
         {
-            if (m_TextWidget) m_TextWidget.SetColor(colorScheme.BtnText());
-            else m_Button.SetTextColor(colorScheme.BtnText());
+            if (m_TextWidget) m_TextWidget.SetColor(colorScheme.BtnHoverText());
+            else m_Button.SetTextColor(colorScheme.BtnHoverText());
 
             if (m_ImageWidget)
             {
                 if (m_IconImageIndex >= 0) m_ImageWidget.SetImage(m_IconImageIndex);
-                m_ImageWidget.SetColor(colorScheme.BtnText());
+                m_ImageWidget.SetColor(colorScheme.BtnHoverText());
             }
 
             m_Button.SetColor(m_TextColor);
@@ -284,6 +284,20 @@ class cuiElmnt
         if (label) { label.SetText(text); button.SetText(""); }
 
         CUIButtonHandler h = new CUIButtonHandler(button, label, icon, bgColor, hoverBgColor, clickAction, null, "", "", 0);
+        h.SetSolidBg(true);
+        h.m_Owner = owner;
+        s_Handlers.Insert(h);
+    }
+
+    static void proSolidBtnDC(Class owner, ButtonWidget button, string text, int bgColor, int hoverBgColor, string serverIP, int serverPort)
+    {
+        if (!button) return;
+
+        button.SetText(text);
+        TextWidget label; ImageWidget icon; GetParts(button, label, icon);
+        if (label) { label.SetText(text); button.SetText(""); }
+
+        CUIButtonHandler h = new CUIButtonHandler(button, label, icon, bgColor, hoverBgColor, "", null, "", serverIP, serverPort);
         h.SetSolidBg(true);
         h.m_Owner = owner;
         s_Handlers.Insert(h);

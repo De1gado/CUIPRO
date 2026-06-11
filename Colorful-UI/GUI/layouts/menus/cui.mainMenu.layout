@@ -24,7 +24,7 @@ FrameWidgetClass mainmenu_root {
    scaled 1
    fixaspect outside
    image0 ""
-   imageTexture "{66611BE3BC40303C}Colorful-UI/GUI/textures/LoadScreens/Loadscreen_6.edds"
+   imageTexture "Colorful-UI/GUI/textures/LoadScreens/Loneliness_MainMenu.paa"
    mode opaque
    "src alpha" 0
    "clamp mode" clamp
@@ -33,6 +33,19 @@ FrameWidgetClass mainmenu_root {
    filter 0
    "Transition width" 1
    Progress 0
+  }
+  PanelWidgetClass ZoneTint {
+   visible 1
+   ignorepointer 1
+   color 0.008 0.02 0.027 0.698
+   position 0 0
+   size 1 1
+   halign center_ref
+   valign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
   }
   VideoWidgetClass MenuVideo {
    ignorepointer 1
@@ -126,31 +139,32 @@ FrameWidgetClass mainmenu_root {
    {
     GridSpacerWidgetClass TopNavigation {
      ignorepointer 1
-     size 699 40
-     halign right_ref
+     position 0 228
+     size 360 218
+     halign left_ref
      hexactpos 1
      vexactpos 1
      hexactsize 1
      vexactsize 1
-     Padding 32
-     Margin 0
-     "Size To Content H" 1
-     content_halign right
+     Padding 0
+     Margin 10
+     "Size To Content V" 1
+     content_halign left
      content_valign center
-     Columns 4
-     Rows 1
+     Columns 1
+     Rows 4
      {
       ButtonWidgetClass MessageBtn {
        color 0 0 0 0
        position 0 0
-       size 139 40
+       size 360 40
        valign center_ref
        hexactpos 1
        vexactpos 1
        hexactsize 1
        vexactsize 1
        style Empty
-       "no focus" 1
+       "no focus" 0
        "next left" ""
        "next right" ""
        "next up" ""
@@ -169,6 +183,7 @@ FrameWidgetClass mainmenu_root {
          style DayZDefaultPanel
          {
           ImageWidgetClass MessageBtn_img {
+           visible 0
            clipchildren 0
            ignorepointer 1
            size 24 24
@@ -189,19 +204,19 @@ FrameWidgetClass mainmenu_root {
            clipchildren 0
            ignorepointer 1
            position 0 0
-           size 1 1
+           size 360 40
            valign center_ref
            hexactpos 1
            vexactpos 1
-           hexactsize 0
-           vexactsize 0
+           hexactsize 1
+           vexactsize 1
            text "Credits"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+           font "Colorful-UI/GUI/fonts/Stalker/Arimo-Stalker.fnt"
            "exact text" 1
-           "exact text size" 30
-           "size to text h" 1
+           "exact text size" 28
+           "size to text h" 0
            "size to text v" 0
-           "text halign" right
+           "text halign" center
            "text valign" center
           }
          }
@@ -210,15 +225,15 @@ FrameWidgetClass mainmenu_root {
       }
       ButtonWidgetClass TutorialBtn {
        color 0 0 0 0
-       size 163 40
-       halign right_ref
+       size 360 40
+       halign left_ref
        valign center_ref
        hexactpos 1
        vexactpos 1
        hexactsize 1
        vexactsize 1
        style Empty
-       "no focus" 1
+       "no focus" 0
        "next left" ""
        "next right" ""
        "next up" ""
@@ -238,6 +253,7 @@ FrameWidgetClass mainmenu_root {
          style DayZDefaultPanel
          {
           ImageWidgetClass TutorialBtn_img {
+           visible 0
            clipchildren 0
            ignorepointer 1
            size 27 25
@@ -258,19 +274,19 @@ FrameWidgetClass mainmenu_root {
            clipchildren 0
            ignorepointer 1
            position 0 0
-           size 1 1
+           size 360 40
            valign center_ref
            hexactpos 1
            vexactpos 1
-           hexactsize 0
-           vexactsize 0
+           hexactsize 1
+           vexactsize 1
            text "Tutorial"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+           font "Colorful-UI/GUI/fonts/Stalker/Arimo-Stalker.fnt"
            "exact text" 1
-           "exact text size" 30
-           "size to text h" 1
+           "exact text size" 28
+           "size to text h" 0
            "size to text v" 0
-           "text halign" right
+           "text halign" center
            "text valign" center
           }
          }
@@ -280,15 +296,15 @@ FrameWidgetClass mainmenu_root {
       ButtonWidgetClass SettingsBtn {
        visible 1
        color 0 0 0 0
-       size 154 40
-       halign right_ref
+       size 360 40
+       halign left_ref
        valign center_ref
        hexactpos 1
        vexactpos 1
        hexactsize 1
        vexactsize 1
        style Empty
-       "no focus" 1
+       "no focus" 0
        "next left" ""
        "next right" ""
        "next up" ""
@@ -308,7 +324,7 @@ FrameWidgetClass mainmenu_root {
          style DayZDefaultPanel
          {
           ImageWidgetClass SettingsBtn_img {
-           visible 1
+           visible 0
            clipchildren 0
            ignorepointer 1
            position 0 0
@@ -331,19 +347,19 @@ FrameWidgetClass mainmenu_root {
            clipchildren 0
            ignorepointer 1
            position 0 0
-           size 1 1
+           size 360 40
            valign center_ref
            hexactpos 1
            vexactpos 1
-           hexactsize 0
-           vexactsize 0
+           hexactsize 1
+           vexactsize 1
            text "Settings"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+           font "Colorful-UI/GUI/fonts/Stalker/Arimo-Stalker.fnt"
            "exact text" 1
-           "exact text size" 30
-           "size to text h" 1
+           "exact text size" 28
+           "size to text h" 0
            "size to text v" 0
-           "text halign" right
+           "text halign" center
            "text valign" center
           }
          }
@@ -352,8 +368,8 @@ FrameWidgetClass mainmenu_root {
       }
       ButtonWidgetClass ExitBtn {
        color 0 0 0 0
-       size 92 40
-       halign right_ref
+       size 360 40
+       halign left_ref
        valign center_ref
        hexactpos 1
        vexactpos 1
@@ -361,7 +377,7 @@ FrameWidgetClass mainmenu_root {
        vexactsize 1
        scriptclass ""
        style Empty
-       "no focus" 1
+       "no focus" 0
        "next left" ""
        "next right" ""
        "next up" ""
@@ -381,6 +397,7 @@ FrameWidgetClass mainmenu_root {
          style DayZDefaultPanel
          {
           ImageWidgetClass ExitBtn_img {
+           visible 0
            clipchildren 0
            ignorepointer 1
            size 27 24
@@ -401,19 +418,19 @@ FrameWidgetClass mainmenu_root {
            clipchildren 0
            ignorepointer 1
            position 0 0
-           size 1 1
+           size 360 40
            valign center_ref
            hexactpos 1
            vexactpos 1
-           hexactsize 0
-           vexactsize 0
+           hexactsize 1
+           vexactsize 1
            text "Exit"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+           font "Colorful-UI/GUI/fonts/Stalker/Arimo-Stalker.fnt"
            "exact text" 1
-           "exact text size" 30
-           "size to text h" 1
+           "exact text size" 28
+           "size to text h" 0
            "size to text v" 0
-           "text halign" right
+           "text halign" center
            "text valign" center
           }
          }
@@ -426,11 +443,12 @@ FrameWidgetClass mainmenu_root {
      visible 1
      ignorepointer 1
      keepsafezone 1
-     size 293 618.3
-     halign right_ref
-     valign bottom_ref
-     hexactpos 0
-     vexactpos 0
+     position 0 165
+     size 360 58
+     halign left_ref
+     valign top_ref
+     hexactpos 1
+     vexactpos 1
      hexactsize 1
      vexactsize 1
      Padding 0
@@ -442,8 +460,8 @@ FrameWidgetClass mainmenu_root {
        ignorepointer 1
        position 0 0
        size 0 0
-       halign right_ref
-       valign bottom_ref
+       halign left_ref
+       valign top_ref
        hexactpos 0
        vexactpos 0
        hexactsize 0
@@ -452,15 +470,15 @@ FrameWidgetClass mainmenu_root {
        Margin 0
        "Size To Content H" 1
        "Size To Content V" 1
-       content_halign right
+       content_halign left
        Columns 1
        Rows 5
        {
         ButtonWidgetClass PlayBtn {
          color 0 0 0 0
          position 0 0
-         size 293 50
-         halign right_ref
+         size 360 50
+         halign left_ref
          valign center_ref
          hexactpos 1
          vexactpos 1
@@ -473,32 +491,54 @@ FrameWidgetClass mainmenu_root {
          "next up" "choose_server"
          "next down" "play_video"
          text_offset 0 0
-         text_halign right
+         text_halign center
          {
+          ImageWidgetClass PlayBtn_panel {
+           visible 1
+           ignorepointer 1
+           color 1 1 1 1
+           position -10 0
+           size 380 50
+           halign left_ref
+           valign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           image0 ""
+           imageTexture "Colorful-UI/GUI/textures/Shared/Loneliness_Button_Primary.paa"
+           mode blend
+           "src alpha" 1
+           "clamp mode" clamp
+           "stretch mode" stretch_w_h
+           filter 1
+          }
           TextWidgetClass PlayBtn_label {
            clipchildren 0
            ignorepointer 1
-           size 1 1
-           halign right_ref
+           priority 2
+           size 360 50
+           halign center_ref
            valign center_ref
            hexactpos 1
            vexactpos 0
-           hexactsize 0
-           vexactsize 0
+           hexactsize 1
+           vexactsize 1
            scaled 1
            text "PLAY"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+           font "Colorful-UI/GUI/fonts/Stalker/Arimo-Stalker.fnt"
            "text sharpness" 1.5
            "exact text" 1
-           "exact text size" 45
-           "size to text h" 1
+           "exact text size" 30
+           "size to text h" 0
            "size to text v" 0
-           "text halign" right
+           "text halign" center
            "text valign" center
           }
          }
         }
         ButtonWidgetClass QueueBtn {
+         visible 0
          color 0 0 0 0
          position 0 0
          size 293 38
@@ -538,7 +578,7 @@ FrameWidgetClass mainmenu_root {
              hexactsize 0
              vexactsize 0
              text "Priority Queue"
-             font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+             font "Colorful-UI/GUI/fonts/Stalker/Arimo-Stalker.fnt"
              "text sharpness" 1.5
              "exact text" 1
              "exact text size" 30
@@ -552,6 +592,7 @@ FrameWidgetClass mainmenu_root {
          }
         }
         ButtonWidgetClass WebsiteBtn {
+         visible 0
          color 0 0 0 0
          position 0 0
          size 293 38
@@ -591,7 +632,7 @@ FrameWidgetClass mainmenu_root {
              hexactsize 0
              vexactsize 0
              text "Website"
-             font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+             font "Colorful-UI/GUI/fonts/Stalker/Arimo-Stalker.fnt"
              "text sharpness" 1.5
              "exact text" 1
              "exact text size" 30
@@ -607,7 +648,7 @@ FrameWidgetClass mainmenu_root {
        }
       }
       FrameWidgetClass TopSpacer {
-       visible 1
+       visible 0
        ignorepointer 1
        position 174.93 0.311
        size 48 15
@@ -617,7 +658,7 @@ FrameWidgetClass mainmenu_root {
        vexactsize 1
       }
       ImageWidgetClass MenuDivider {
-       visible 1
+       visible 0
        ignorepointer 1
        size 293 3
        valign center_ref
@@ -632,7 +673,7 @@ FrameWidgetClass mainmenu_root {
        "flip v" 0
       }
       FrameWidgetClass BottomSpacer {
-       visible 1
+       visible 0
        ignorepointer 1
        position 174.93 0.311
        size 48 15
@@ -642,6 +683,7 @@ FrameWidgetClass mainmenu_root {
        vexactsize 1
       }
       GridSpacerWidgetClass Socials {
+       visible 0
        ignorepointer 1
        position 0 0
        size 0 0
@@ -717,7 +759,7 @@ FrameWidgetClass mainmenu_root {
              hexactsize 0
              vexactsize 0
              text "Discord"
-             font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+             font "Colorful-UI/GUI/fonts/Stalker/Arimo-Stalker.fnt"
              "exact text" 1
              "exact text size" 30
              "size to text h" 1
@@ -788,7 +830,7 @@ FrameWidgetClass mainmenu_root {
              hexactsize 0
              vexactsize 0
              text "YouTube"
-             font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+             font "Colorful-UI/GUI/fonts/Stalker/Arimo-Stalker.fnt"
              "exact text" 1
              "exact text size" 30
              "size to text h" 1
@@ -857,7 +899,7 @@ FrameWidgetClass mainmenu_root {
              hexactsize 0
              vexactsize 0
              text "Twitter"
-             font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+             font "Colorful-UI/GUI/fonts/Stalker/Arimo-Stalker.fnt"
              "exact text" 1
              "exact text size" 30
              "size to text h" 1
@@ -928,7 +970,7 @@ FrameWidgetClass mainmenu_root {
              hexactsize 0
              vexactsize 0
              text "Reddit"
-             font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+             font "Colorful-UI/GUI/fonts/Stalker/Arimo-Stalker.fnt"
              "exact text" 1
              "exact text size" 30
              "size to text h" 1
@@ -999,7 +1041,7 @@ FrameWidgetClass mainmenu_root {
              hexactsize 0
              vexactsize 0
              text "Facebook"
-             font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+             font "Colorful-UI/GUI/fonts/Stalker/Arimo-Stalker.fnt"
              "exact text" 1
              "exact text size" 30
              "size to text h" 1
@@ -1068,7 +1110,7 @@ FrameWidgetClass mainmenu_root {
              hexactsize 0
              vexactsize 0
              text "Meta"
-             font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+             font "Colorful-UI/GUI/fonts/Stalker/Arimo-Stalker.fnt"
              "exact text" 1
              "exact text size" 30
              "size to text h" 1
@@ -1084,6 +1126,7 @@ FrameWidgetClass mainmenu_root {
      }
     }
     ImageWidgetClass SurvivorBox {
+     visible 0
      ignorepointer 1
      color 1 1 1 0.608
      position 0 140
@@ -1109,7 +1152,7 @@ FrameWidgetClass mainmenu_root {
        hexactsize 0
        vexactsize 1
        text "Welcome Back"
-       font "Colorful-UI/GUI/fonts/GB-ClearnRegular.fnt"
+       font "Colorful-UI/GUI/fonts/Stalker/Arimo-Stalker.fnt"
        "text sharpness" 1.5
        "exact text" 1
        "exact text size" 24
@@ -1129,7 +1172,7 @@ FrameWidgetClass mainmenu_root {
        hexactsize 0
        vexactsize 1
        text "character_name_text"
-       font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+       font "Colorful-UI/GUI/fonts/Stalker/Arimo-Stalker.fnt"
        "text sharpness" 1.5
        "exact text" 1
        "exact text size" 32
@@ -1302,7 +1345,7 @@ FrameWidgetClass mainmenu_root {
      }
     }
     FrameWidgetClass StatsBox {
-     visible 1
+     visible 0
      ignorepointer 1
      size 438 291
      valign bottom_ref
@@ -1338,7 +1381,7 @@ FrameWidgetClass mainmenu_root {
        hexactsize 1
        vexactsize 1
        text "SURVIVOR STATISTICS"
-       font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+       font "Colorful-UI/GUI/fonts/Stalker/Arimo-Stalker.fnt"
        "italic text" 0
        "bold text" 0
        "text sharpness" 1.5
@@ -1385,7 +1428,7 @@ FrameWidgetClass mainmenu_root {
            vexactsize 1
            scaled 1
            text "Players Killed"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+           font "Colorful-UI/GUI/fonts/Stalker/Arimo-Stalker.fnt"
            "exact text" 1
            "exact text size" 24
            "size to text h" 1
@@ -1401,7 +1444,7 @@ FrameWidgetClass mainmenu_root {
            hexactsize 0
            vexactsize 0
            text "0"
-           font "Colorful-UI/GUI/fonts/GB-CleanItalic.fnt"
+           font "Colorful-UI/GUI/fonts/Stalker/Arimo-Stalker.fnt"
            "exact text" 1
            "size to text h" 0
            "size to text v" 0
@@ -1428,7 +1471,7 @@ FrameWidgetClass mainmenu_root {
            hexactsize 0
            vexactsize 0
            text "Infected Killed"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+           font "Colorful-UI/GUI/fonts/Stalker/Arimo-Stalker.fnt"
            "exact text" 1
            "exact text size" 24
            "size to text h" 1
@@ -1444,7 +1487,7 @@ FrameWidgetClass mainmenu_root {
            hexactsize 0
            vexactsize 0
            text "0"
-           font "Colorful-UI/GUI/fonts/GB-CleanItalic.fnt"
+           font "Colorful-UI/GUI/fonts/Stalker/Arimo-Stalker.fnt"
            "exact text" 1
            "size to text h" 0
            "size to text v" 0
@@ -1473,7 +1516,7 @@ FrameWidgetClass mainmenu_root {
            hexactsize 0
            vexactsize 0
            text "Distance Traveled"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+           font "Colorful-UI/GUI/fonts/Stalker/Arimo-Stalker.fnt"
            "exact text" 1
            "exact text size" 24
            "size to text h" 1
@@ -1490,7 +1533,7 @@ FrameWidgetClass mainmenu_root {
            hexactsize 0
            vexactsize 0
            text "0"
-           font "Colorful-UI/GUI/fonts/GB-CleanItalic.fnt"
+           font "Colorful-UI/GUI/fonts/Stalker/Arimo-Stalker.fnt"
            "exact text" 1
            "size to text h" 0
            "size to text v" 0
@@ -1521,7 +1564,7 @@ FrameWidgetClass mainmenu_root {
            hexactsize 1
            vexactsize 1
            text "Time Alive"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+           font "Colorful-UI/GUI/fonts/Stalker/Arimo-Stalker.fnt"
            "exact text" 1
            "exact text size" 24
            "size to text h" 1
@@ -1537,7 +1580,7 @@ FrameWidgetClass mainmenu_root {
            hexactsize 0
            vexactsize 0
            text "0"
-           font "Colorful-UI/GUI/fonts/GB-CleanItalic.fnt"
+           font "Colorful-UI/GUI/fonts/Stalker/Arimo-Stalker.fnt"
            "text offset" 2 0
            "exact text" 1
            "size to text h" 0
@@ -1566,7 +1609,7 @@ FrameWidgetClass mainmenu_root {
            hexactsize 1
            vexactsize 1
            text "Longest Player Hit"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+           font "Colorful-UI/GUI/fonts/Stalker/Arimo-Stalker.fnt"
            "exact text" 1
            "exact text size" 24
            "size to text h" 1
@@ -1583,7 +1626,7 @@ FrameWidgetClass mainmenu_root {
            hexactsize 0
            vexactsize 0
            text "0"
-           font "Colorful-UI/GUI/fonts/GB-CleanItalic.fnt"
+           font "Colorful-UI/GUI/fonts/Stalker/Arimo-Stalker.fnt"
            "exact text" 1
            "size to text h" 0
            "size to text v" 0
@@ -1612,8 +1655,145 @@ FrameWidgetClass mainmenu_root {
       }
      }
     }
-    ImageWidgetClass Logo {
+    PanelWidgetClass SelectHint {
+     visible 0
+     ignorepointer 1
+     position 0 40
+     size 210 42
+     valign bottom_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     {
+      TextWidgetClass SelectKey {
+       visible 1
+       ignorepointer 1
+       color 0.894 0.878 0.816 1
+       position 0 0
+       size 34 34
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       text "F"
+       font "Colorful-UI/GUI/fonts/Stalker/Arimo-Stalker.fnt"
+       "exact text" 1
+       "exact text size" 22
+       "text halign" center
+       "text valign" center
+      }
+      TextWidgetClass SelectText {
+       visible 1
+       ignorepointer 1
+       color 0.561 0.659 0.722 1
+       position 48 0
+       size 160 34
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       text "ВЫБРАТЬ"
+       font "Colorful-UI/GUI/fonts/Stalker/Arimo-Stalker.fnt"
+       "exact text" 1
+       "exact text size" 22
+       "text halign" left
+       "text valign" center
+      }
+     }
+    }
+    ButtonWidgetClass QuitBtn {
      visible 1
+     color 0 0 0 0
+     position 0 42
+     size 220 38
+     valign bottom_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     style Empty
+     "no focus" 0
+     {
+      TextWidgetClass QuitBtn_label {
+       visible 1
+       ignorepointer 1
+       color 0.561 0.659 0.722 1
+       position 0 0
+       size 220 38
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       text "ВЫЙТИ"
+       font "Colorful-UI/GUI/fonts/Stalker/Arimo-Stalker.fnt"
+       "exact text" 1
+       "exact text size" 24
+       "text halign" left
+       "text valign" center
+      }
+     }
+    }
+    ImageWidgetClass ZoneLogo {
+     visible 1
+     ignorepointer 1
+     position -4 0
+     size 520 104
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     image0 ""
+     imageTexture "Colorful-UI/GUI/textures/Shared/Loneliness_Logo.paa"
+     mode blend
+     "src alpha" 1
+     "clamp mode" clamp
+     "stretch mode" stretch_w_h
+     filter 1
+     nocache 0
+    }
+    TextWidgetClass ZoneTitle {
+     visible 0
+     ignorepointer 1
+     position 0 0
+     size 438 86
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "LONELINESS"
+     font "Colorful-UI/GUI/fonts/Stalker/Arimo-Stalker.fnt"
+     "text sharpness" 1.5
+     "exact text" 1
+     "exact text size" 62
+     "size to text h" 1
+     "size to text v" 0
+     "text halign" left
+     "text valign" top
+    }
+    TextWidgetClass ZoneSubtitle {
+     visible 0
+     ignorepointer 1
+     position 9 82
+     size 420 34
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "ОДИНОЧЕСТВО"
+     font "Colorful-UI/GUI/fonts/Stalker/Arimo-Stalker.fnt"
+     "text sharpness" 1.5
+     "exact text" 1
+     "exact text size" 28
+     "size to text h" 1
+     "size to text v" 0
+     "text halign" left
+     "text valign" top
+    }
+    ImageWidgetClass Logo {
+     visible 0
      inheritalpha 1
      size 438 261
      hexactpos 1
@@ -1622,7 +1802,7 @@ FrameWidgetClass mainmenu_root {
      vexactsize 1
      fixaspect outside
      image0 ""
-     imageTexture "{995A4D44D78F2EC6}Colorful-UI/GUI/textures/Shared/CuiPro_Logo.edds"
+     imageTexture "Colorful-UI/GUI/textures/Shared/Loneliness_Logo.paa"
      mode blend
      "src alpha" 1
      "clamp mode" clamp

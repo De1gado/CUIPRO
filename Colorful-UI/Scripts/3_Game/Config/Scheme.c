@@ -1,62 +1,71 @@
 // UI THEME ---------------------------------------------------------------
-// Adjust these settings to align with your desired theme and aesthetics.
-class colorScheme 
+// Cold Zone: blue-black surfaces, blue-gray secondary text, dirty white active states.
+class colorScheme
 {
-	// Brand Specific 
-	static int BrandColor()          { return UIColor.Orange(); }
-	static int AccentColor()         { return ARGB(255, 100, 35, 35); }  
-	static int TertiaryColor()       { return ARGB(255, 204, 255, 204); }
+	// Brand specific
+	static int BrandColor()          { return UIColor.ZoneActivePaper(); }
+	static int AccentColor()         { return UIColor.ZoneColdAccent(); }
+	static int TertiaryColor()       { return UIColor.ZoneColdAccent(); }
 
-	// Base Typography 
-	static int PrimaryText()         { return UIColor.White(); }            // Primary text color
-	static int SecondaryText()       { return UIColor.Grey(); }         	// Color for secondary text, e.g., subtitles or info
-	static int TextHover()           { return BrandColor(); }           	// Text color for hover effects
-	static int DisabledText()        { return ARGB(180, 130, 130, 130); };  // Color for secondary text, e.g., subtitles or info
+	// Base typography
+	static int PrimaryText()         { return UIColor.ZoneText(); }
+	static int SecondaryText()       { return UIColor.ZoneTextMuted(); }
+	static int TextHover()           { return UIColor.ZoneText(); }
+	static int DisabledText()        { return UIColor.ZoneTextDim(); }
 
-	// Global UI Elements 
-	static int ButtonHover()         { return BrandColor(); }           	// Button color on hover
-	static int Icons()         		 { return BrandColor(); }           	// Primary Color for all icons
-	static int LogOutTimer()         { return BrandColor(); }           	// Timer color for logout on logout Screen
-	static int Separator()           { return BrandColor(); }           	// Divider color to segment UI sections
-	static int Loadingbar()          { return BrandColor(); }           	// Loading bar color
-	
+	// Global UI elements
+	static int ButtonHover()         { return UIColor.ZoneText(); }
+	static int Icons()               { return UIColor.ZoneText(); }
+	static int LogOutTimer()         { return UIColor.ZoneActivePaper(); }
+	static int Separator()           { return UIColor.ZoneBorderDim(); }
+	static int Loadingbar()          { return UIColor.ZoneActivePaper(); }
+
 	// Buttons
-	static int BtnText()          { return PrimaryText(); }
-	static int BtnHoverText()     { return TextHover(); }
-	static int BtnSolidBG()       { return BrandColor(); }
-	static int BtnSolidHoverBG()  { return AccentColor(); }
-	static int BtnIcon()          { return Icons(); }
+	static int BtnText()             { return PrimaryText(); }
+	static int BtnHoverText()        { return UIColor.ZoneActiveText(); }
+	static int BtnSolidBG()          { return UIColor.ZonePanel(); }
+	static int BtnSolidHoverBG()     { return UIColor.ZoneActivePaper(); }
+	static int BtnIcon()             { return Icons(); }
+	static int BtnDangerBG()         { return UIColor.ZoneDanger(); }
+	static int BtnDangerHoverBG()    { return UIColor.ZoneDangerDark(); }
 
 	// Tabs
-	static int TabIdle()           { return PrimaryText(); }
-	static int TabHoverColor()     { return BrandColor(); }
-	static int TabSelectedColor()  { return BrandColor(); }
-	static int TabBackground()     { return UIColor.Black(); }
+	static int TabIdle()             { return SecondaryText(); }
+	static int TabHoverColor()       { return BrandColor(); }
+	static int TabSelectedColor()    { return UIColor.ZoneActiveText(); }
+	static int TabBackground()       { return UIColor.ZoneActivePaper(); }
+	static int TabPanelBackground()  { return UIColor.ZonePanelSoft(); }
 
-	// Shader Colors 
-	static int TopShader()           {return UIColor.Black();}  			// Top shader on layouts
-	static int BottomShader()        {return UIColor.Black();}  			// Bottom shader on layouts
+	// Shader colors
+	static int TopShader()           { return UIColor.ZoneBlack(); }
+	static int BottomShader()        { return UIColor.ZoneBlack(); }
 
-	// Loading Screen
-	static int TipText()             { return PrimaryText(); }          	// Main text color for tips
-	static int LoadingMsg()          { return TertiaryColor(); }        	// Color for loading messages
-	static int TipHeader()           { return BrandColor(); }           	// Header color for tips
-	static int TipLine()             { return BrandColor(); }           	// Divider line color in tips
+	// Loading screen
+	static int TipText()             { return PrimaryText(); }
+	static int LoadingMsg()          { return PrimaryText(); }
+	static int TipHeader()           { return AccentColor(); }
+	static int TipLine()             { return UIColor.ZoneBorderDim(); }
 
-	// Main Menu
-	static int NavIcon()             { return BrandColor(); }           	// Navigation icon color
-	static int SurvivorBox()         { return UIColor.cuiDarkBlue(); }		// Background color for "Survivor" box
-	static int StatsBox()            { return UIColor.cuiDarkBlue(); }  	// Background color for "Stats" box
+	// Main menu
+	static int NavIcon()             { return PrimaryText(); }
+	static int SurvivorBox()         { return UIColor.ZonePanelSoft(); }
+	static int StatsBox()            { return UIColor.ZonePanelSoft(); }
+	static int MenuTint()            { return ARGB(150, 2, 5, 7); }
+	static int BackgroundTone()      { return ARGB(255, 132, 154, 170); }
 
-	// Options Page 
-	static int OptionHeaders()       { return BrandColor(); }           	// Header color in options
-	static int OptionLine()          { return AccentColor(); }          	// Header color in options
-	static int OptionInputColors()   { return BrandColor(); }           	// Input fields color
-	static int OptionSliderColors()  { return BrandColor(); }           	// Slider color in options
-	static int OptionSelectionText() { return BrandColor(); }           	// Caret color for dropdowns
-	static int OptionCaretColors()   { return BrandColor(); }           	// Caret color for dropdowns
+	// Dialogs
+	static int DialogPanel()         { return UIColor.ZoneSurface(); }
+	static int DialogBorder()        { return UIColor.ZoneBorderDim(); }
+	static int Warning()             { return UIColor.ZoneDanger(); }
+
+	// Options page
+	static int OptionHeaders()       { return BrandColor(); }
+	static int OptionLine()          { return UIColor.ZoneBorderDim(); }
+	static int OptionInputColors()   { return BrandColor(); }
+	static int OptionSliderColors()  { return BrandColor(); }
+	static int OptionSelectionText() { return BrandColor(); }
+	static int OptionCaretColors()   { return BrandColor(); }
 	static int OptionIconHover()     { return TextHover(); }
-	static int OptionIconNormal()    { return PrimaryText(); } // Or Icons() if that exists
-
-	static int OptionBGHover()       { return UIColor.cuiDarkBlue(); }  	// Background color for hovered options
+	static int OptionIconNormal()    { return PrimaryText(); }
+	static int OptionBGHover()       { return UIColor.ZonePanelSoft(); }
 }

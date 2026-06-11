@@ -41,10 +41,10 @@ modded class RespawnDialogue extends UIScriptedMenu
         m_BottomShader.SetColor(colorScheme.BottomShader());
         m_MenuDivider.SetColor(colorScheme.Separator());
 
-        // CALLBACK BUTTONS
-        cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_CancelBtn),        "#menu_cancel",                colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "CancelBtn");
-        cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_RandomRespawnBtn), "#main_menu_respawn_random",   colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "OnRandomRespawnClick");
-        cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_CustomRespawnBtn), "#main_menu_respawn_custom",   colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "OnCustomRespawnClick");
+        // CALLBACK BUTTONS — Cold Zone: inactive cold blue-gray, dirty white on hover.
+        cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_CancelBtn),        "#menu_cancel",                colorScheme.SecondaryText(), colorScheme.ButtonHover(), this, "CancelBtn");
+        cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_RandomRespawnBtn), "#main_menu_respawn_random",   colorScheme.SecondaryText(), colorScheme.ButtonHover(), this, "OnRandomRespawnClick");
+        cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_CustomRespawnBtn), "#main_menu_respawn_custom",   colorScheme.SecondaryText(), colorScheme.ButtonHover(), this, "OnCustomRespawnClick");
 
         // URL BUTTONS (FIXED)
         cuiElmnt.proBtnURL(this, ButtonWidget.Cast(m_PrioQ),   "Priority Queue", colorScheme.PrimaryText(), colorScheme.ButtonHover(), CustomURL.PriorityQ);

@@ -42,11 +42,13 @@ modded class InGameMenu extends UIScriptedMenu
         if (m_MenuDivider)  m_MenuDivider.SetColor(colorScheme.Separator());
 
         // Example of a button with a callbacks
-        cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_ExitButton),"#main_menu_exit",colorScheme.PrimaryText(),colorScheme.ButtonHover(),this,"OnClick_Exit");
-        cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_ContinueButton),"#main_menu_continue",colorScheme.PrimaryText(),colorScheme.ButtonHover(),this,"OnClick_Continue");
-        cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_OptionsButton),"#layout_xbox_ingame_menu_options",colorScheme.PrimaryText(),colorScheme.ButtonHover(),this,"OnClick_Options");
-        cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_RestartButton),"#main_menu_restart",colorScheme.PrimaryText(),colorScheme.ButtonHover(),this,"OnClick_Restart");
-        cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_RespawnButton),"#main_menu_respawn",colorScheme.PrimaryText(),colorScheme.ButtonHover(),this,"OnClick_Respawn");
+        // Cold Zone: inactive nav items are cold blue-gray (SecondaryText), dirty
+        // white on hover (ButtonHover) — matches MainMenu and APPROVED_UI_DIRECTION.
+        cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_ExitButton),"#main_menu_exit",colorScheme.SecondaryText(),colorScheme.ButtonHover(),this,"OnClick_Exit");
+        cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_ContinueButton),"#main_menu_continue",colorScheme.SecondaryText(),colorScheme.ButtonHover(),this,"OnClick_Continue");
+        cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_OptionsButton),"#layout_xbox_ingame_menu_options",colorScheme.SecondaryText(),colorScheme.ButtonHover(),this,"OnClick_Options");
+        cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_RestartButton),"#main_menu_restart",colorScheme.SecondaryText(),colorScheme.ButtonHover(),this,"OnClick_Restart");
+        cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_RespawnButton),"#main_menu_respawn",colorScheme.SecondaryText(),colorScheme.ButtonHover(),this,"OnClick_Respawn");
 
 		// Custom Links
         cuiElmnt.proBtnURL(this, ButtonWidget.Cast(m_PrioQ),"Priority Queue",colorScheme.PrimaryText(),colorScheme.ButtonHover(),CustomURL.PriorityQ);           

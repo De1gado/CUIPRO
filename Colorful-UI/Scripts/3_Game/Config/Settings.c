@@ -1,50 +1,50 @@
 // Constants.c v3.0.0
-static bool StartMainMenu      = true;  // If set to true, the main menu will be forced to show on startup.
-static bool NoHints			   = false;  // If set to true, the hints will not be shown during load screens.
-static bool UseImagesets       = false;   // If true, hints.json entries with m_ImageSet/m_ImageName load from the registered `backgrounds` imageset; otherwise m_ImagePath is used.
-static bool LoadVideo          = false;  // If set to true, a video will be shown during load screens along with tips.
-static bool ShowGameOverOverlay = false;  // Internal runtime flag toggled by DayZPlayerImplement.ShowDeadScreen() to drive the custom game-over overlay in InGameMenu/Respawn. NOT a user-facing config (it is reset each death).
+static bool StartMainMenu      = true;  // Если true, при запуске принудительно показывается главное меню.
+static bool NoHints			   = false;  // Если true, подсказки не показываются на экранах загрузки.
+static bool UseImagesets       = false;   // Если true, записи hints.json с m_ImageSet/m_ImageName загружаются из зарегистрированного imageset backgrounds; иначе используется m_ImagePath.
+static bool LoadVideo          = false;  // Если true, на экранах загрузки показывается видео вместе с подсказками.
+static bool ShowGameOverOverlay = false;  // Внутренний флаг времени выполнения: переключается DayZPlayerImplement.ShowDeadScreen() для оверлея game over в InGameMenu/Respawn. Не пользовательская настройка (сбрасывается при каждой смерти).
 
-// The below tend to break right now. Fix with 4.0.0 Update.
-static bool EnableMenuVideo    = false;  // Background video on main menu (via workspace-rooted CuiBackgroundVideo).
-static bool EnableOptionsVideo = false;  // Background video on options menu (when opened from main menu).
-static bool VideoDeathScreens  = false;  // If set to true, a random game over screen will be shown when the player dies.
-// static bool RandomDeathScreens = false;  // If set to true, a random game over video that will be shown when the player dies.
+// Параметры ниже сейчас часто ломаются. Исправление планируется в обновлении 4.0.0.
+static bool EnableMenuVideo    = false;  // Фоновое видео в главном меню (через CuiBackgroundVideo от корня workspace).
+static bool EnableOptionsVideo = false;  // Фоновое видео в меню настроек (при открытии из главного меню).
+static bool VideoDeathScreens  = false;  // Если true, при смерти игрока показывается случайный экран game over.
+// static bool RandomDeathScreens = false;  // Если true, при смерти игрока показывается случайное видео game over.
 
-// Server Information 
-// (Possibly Buggy in the CUI Buttons. Not yet tested on live servers)
+// Информация о сервере
+// (В кнопках CUI возможны баги. На живых серверах ещё не тестировалось)
 static const string SERVER_IP = "127.0.0.1";
 static const int SERVER_PORT = 2302;
 
-// Video Settings (Change them up)
-static const string m_LoadingVideo     = "CUI_Video.mov";  // Video file name for loading screen video. 
-static const string m_MainMenuVideo    = "CUI_Video.mov";  // Video file name for Main Menu screen video. 
-static const string m_OptionsMenuVideo = "CUI_Video.mov";  // Video file name for Options screen video. 
+// Настройки видео (меняйте по своему усмотрению)
+static const string m_LoadingVideo     = "CUI_Video.mov";  // Имя файла видео для экрана загрузки.
+static const string m_MainMenuVideo    = "CUI_Video.mov";  // Имя файла видео для главного меню.
+static const string m_OptionsMenuVideo = "CUI_Video.mov";  // Имя файла видео для меню настроек.
 
-// Main Menu Background — picks between imageset sprite and raw .edds
-// based on UseImagesets. Edit either side to repoint.
+// Фон главного меню — выбор между спрайтом imageset и сырым .edds
+// в зависимости от UseImagesets. Меняйте нужную ветку для смены пути.
 string GetMainMenuBackground()
 {
     if (UseImagesets)
         return "set:backgrounds image:mainmenu";
-    return "Colorful-UI/GUI/textures/LoadScreens/MainMenu.edds";
+    return "Colorful-UI/GUI/textures/LoadScreens/Loneliness_MainMenu.paa";
 }
-// Set Single Game Over Screen ( Death Screen )
+// Один экран game over (экран смерти)
 class GameOverScreen
 {
     static string GameOverScreenImage() { return "Colorful-UI/GUI/textures/DeathScreens/DeathScreen.edds"; };
 };
 
-// Set Your Servers Logo
-// NOTE:  Width and High Settings are not yet implemented here.
-//        Recommended size is 512x512 But you can set the size manually in the layout file for the moment.
+// Логотип сервера
+// ПРИМЕЧАНИЕ: настройки ширины и высоты здесь пока не реализованы.
+//        Рекомендуемый размер — 512×512; пока размер задаётся вручную в layout-файле.
 class Branding
 {
     static string Logo()
     {
         if (UseImagesets)
             return "set:branding image:logo";
-        return "Colorful-UI/GUI/textures/Shared/Colorful UI Logo.edds";
+        return "Colorful-UI/GUI/textures/Shared/Loneliness_Logo.paa";
     }
     static void ApplyLogo(ImageWidget widget)
     {
@@ -54,10 +54,10 @@ class Branding
     }
 };
 
-// Link URLs (Add your own links here)
-// NOTE:  If you do not want to use a button, set the URL to "#" or "".
-//        If you do not set them they will not show up in the layout when compiled.
-//        This way it shows only the buttons you want to use.
+// URL ссылок (добавьте свои ссылки здесь)
+// ПРИМЕЧАНИЕ: если кнопка не нужна, укажите URL «#» или «».
+//        Если не задать — кнопки не появятся в layout после компиляции.
+//        Так отображаются только нужные кнопки.
 
 class CustomURL {
 	static string Website    = "#"; 

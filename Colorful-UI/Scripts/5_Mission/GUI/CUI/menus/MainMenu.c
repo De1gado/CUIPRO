@@ -3,12 +3,15 @@ modded class MainMenu extends UIScriptedMenu
 	protected ref MainMenuStats m_Stats;
 	protected TextWidget m_PlayerName;
 	protected TextWidget m_WelcomeBack;
+	protected TextWidget m_ZoneTitle, m_ZoneSubtitle;
 	protected ButtonWidget m_PrevCharacter, m_NextCharacter;
 	protected ImageWidget m_TopShader, m_BottomShader, m_MenuDivider, m_StatisticsBoxBG, m_SurvivorBox, m_Logo, m_Background;
+	protected Widget m_ZoneTint;
+	protected Widget m_PlayPanel;
 	// MenuDivider0 was switched to PanelWidget (solid bg) in the layout, so it's
 	// typed as plain Widget here — SetColor lives on the base Widget class.
 	protected Widget m_MenuDivider0;
-	protected ButtonWidget m_Play, m_Exit, m_SettingsBtn, m_TutorialBtn, m_MessageBtn, m_PrioQ, m_Website, m_Discord, m_Twitter, m_Youtube, m_Reddit, m_Facebook, m_CharacterBtn;
+	protected ButtonWidget m_Play, m_Exit, m_QuitBtn, m_SettingsBtn, m_TutorialBtn, m_MessageBtn, m_PrioQ, m_Website, m_Discord, m_Twitter, m_Youtube, m_Reddit, m_Facebook, m_CharacterBtn;
 	protected ButtonWidget m_TestBtn0, m_TestBtn1, m_TestBtn2, m_TestBtn3, m_TestBtn4, m_TestBtn5;
 	protected Widget m_TopSpacer, m_BottomSpacer;
 	protected ProgressBarWidget m_LoadingBar;
@@ -19,6 +22,7 @@ modded class MainMenu extends UIScriptedMenu
 
 		m_Play              = ButtonWidget.Cast(layoutRoot.FindAnyWidget("PlayBtn"));
 		m_Exit              = ButtonWidget.Cast(layoutRoot.FindAnyWidget("ExitBtn"));
+		m_QuitBtn           = ButtonWidget.Cast(layoutRoot.FindAnyWidget("QuitBtn"));
 		m_SettingsBtn       = ButtonWidget.Cast(layoutRoot.FindAnyWidget("SettingsBtn"));
 		m_TutorialBtn       = ButtonWidget.Cast(layoutRoot.FindAnyWidget("TutorialBtn"));
 		m_MessageBtn        = ButtonWidget.Cast(layoutRoot.FindAnyWidget("MessageBtn"));
@@ -40,8 +44,10 @@ modded class MainMenu extends UIScriptedMenu
 			// workspace-rooted CuiBackgroundVideo (priority 1).
 			if (EnableMenuVideo) m_Background.Show(false);
 			else                 m_Background.LoadImageFile(0, GetMainMenuBackground());
+			m_Background.SetColor(colorScheme.BackgroundTone());
 		}
 
+		m_ZoneTint          = layoutRoot.FindAnyWidget("ZoneTint");
 		m_TopShader         = ImageWidget.Cast(layoutRoot.FindAnyWidget("TopShader"));
 		m_BottomShader      = ImageWidget.Cast(layoutRoot.FindAnyWidget("BottomShader"));
 		m_StatisticsBoxBG 	= ImageWidget.Cast(layoutRoot.FindAnyWidget("StatisticsBoxBG"));
@@ -53,8 +59,13 @@ modded class MainMenu extends UIScriptedMenu
 
 		m_LoadingBar        = ProgressBarWidget.Cast(layoutRoot.FindAnyWidget("LoadingBar"));
 		m_Logo              = ImageWidget.Cast(layoutRoot.FindAnyWidget("Logo"));
+		m_PlayPanel         = layoutRoot.FindAnyWidget("PlayBtn_panel");
+		m_ZoneTitle         = TextWidget.Cast(layoutRoot.FindAnyWidget("ZoneTitle"));
+		m_ZoneSubtitle      = TextWidget.Cast(layoutRoot.FindAnyWidget("ZoneSubtitle"));
 		m_PlayerName        = TextWidget.Cast(layoutRoot.FindAnyWidget("character_name_text"));
 		m_WelcomeBack       = TextWidget.Cast(layoutRoot.FindAnyWidget("WelcomeBack"));
+		if (m_ZoneTitle) m_ZoneTitle.SetColor(colorScheme.PrimaryText());
+		if (m_ZoneSubtitle) m_ZoneSubtitle.SetColor(colorScheme.SecondaryText());
 		if (m_WelcomeBack) m_WelcomeBack.SetColor(colorScheme.BrandColor());
 		m_PrevCharacter     = ButtonWidget.Cast(layoutRoot.FindAnyWidget("prev_character"));
 		m_NextCharacter     = ButtonWidget.Cast(layoutRoot.FindAnyWidget("next_character"));
@@ -70,30 +81,33 @@ modded class MainMenu extends UIScriptedMenu
 		if (stats_root)
 			m_Stats = new MainMenuStats(stats_root);
 
-		if (m_StatisticsBoxBG) m_StatisticsBoxBG.SetColor(UIColor.cuiDarkBlue());
-		if (m_SurvivorBox) m_SurvivorBox.SetColor(UIColor.cuiDarkBlue());
+		if (m_StatisticsBoxBG) m_StatisticsBoxBG.SetColor(colorScheme.StatsBox());
+		if (m_SurvivorBox) m_SurvivorBox.SetColor(colorScheme.SurvivorBox());
+		if (m_ZoneTint) m_ZoneTint.SetColor(colorScheme.MenuTint());
 		if (m_TopShader) m_TopShader.SetColor(colorScheme.TopShader());
 		if (m_BottomShader) m_BottomShader.SetColor(colorScheme.BottomShader());
 		if (m_MenuDivider) m_MenuDivider.SetColor(colorScheme.Separator());
 		if (m_MenuDivider0) m_MenuDivider0.SetColor(colorScheme.Separator());
 		if (m_LoadingBar) m_LoadingBar.SetColor(colorScheme.Loadingbar());
+		if (m_PlayPanel) m_PlayPanel.SetColor(colorScheme.BrandColor());
 
 		TextWidget statsHeader = TextWidget.Cast(layoutRoot.FindAnyWidget("character_stats_textImg"));
 		if (statsHeader) statsHeader.SetColor(colorScheme.BrandColor());
 
-		cuiElmnt.proBtnDC(this, ButtonWidget.Cast(m_Play), "#main_menu_play", colorScheme.PrimaryText(), colorScheme.ButtonHover(), SERVER_IP, SERVER_PORT);
+		cuiElmnt.proSolidBtnDC(this, ButtonWidget.Cast(m_Play), "ВОЙТИ", colorScheme.BtnSolidHoverBG(), UIColor.ZoneTextMuted(), SERVER_IP, SERVER_PORT);
 
-		cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_Exit), "#main_menu_exit", colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "OpenExitDialog");
-		cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_SettingsBtn), "Settings", colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "OpenSettings");
-		cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_TutorialBtn), "Tutorial", colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "OpenTutorials");
-		cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_MessageBtn), "Credits", colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "OpenCredits");
+		cuiElmnt.proBtnURL(this, ButtonWidget.Cast(m_MessageBtn), "ДИСКОРД", colorScheme.SecondaryText(), colorScheme.ButtonHover(), SocialURL.Discord);
+		cuiElmnt.proBtnURL(this, ButtonWidget.Cast(m_TutorialBtn), "МАГАЗИН", colorScheme.SecondaryText(), colorScheme.ButtonHover(), CustomURL.Website);
+		cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_SettingsBtn), "ПРАВИЛА", colorScheme.SecondaryText(), colorScheme.ButtonHover(), this, "OpenTutorials");
+		cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_Exit), "НАСТРОЙКИ", colorScheme.SecondaryText(), colorScheme.ButtonHover(), this, "OpenSettings");
+		cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_QuitBtn), "ВЫЙТИ", colorScheme.SecondaryText(), colorScheme.ButtonHover(), this, "OpenExitDialog");
 		cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_CharacterBtn), "", colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "OpenMenuCustomizeCharacter");
 		
 		cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_PrevCharacter), "", colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "PreviousCharacter");
 		cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_NextCharacter), "", colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "NextCharacter");
 
-		cuiElmnt.proBtnURL(this, ButtonWidget.Cast(m_PrioQ), "Priority Queue", colorScheme.PrimaryText(), colorScheme.ButtonHover(), CustomURL.PriorityQ);
-		cuiElmnt.proBtnURL(this, ButtonWidget.Cast(m_Website), "Visit Website", colorScheme.PrimaryText(), colorScheme.ButtonHover(), CustomURL.Website);
+		cuiElmnt.proBtnURL(this, ButtonWidget.Cast(m_PrioQ), "ПРИОРИТЕТНАЯ ОЧЕРЕДЬ", colorScheme.PrimaryText(), colorScheme.ButtonHover(), CustomURL.PriorityQ);
+		cuiElmnt.proBtnURL(this, ButtonWidget.Cast(m_Website), "САЙТ", colorScheme.PrimaryText(), colorScheme.ButtonHover(), CustomURL.Website);
 
 		cuiElmnt.proBtnURL(this, ButtonWidget.Cast(m_Discord), "Discord", colorScheme.PrimaryText(), UIColor.Discord(), SocialURL.Discord);
 		cuiElmnt.proBtnURL(this, ButtonWidget.Cast(m_Twitter), "Twitter", colorScheme.PrimaryText(), UIColor.Twitter(), SocialURL.Twitter);
